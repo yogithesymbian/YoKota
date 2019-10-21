@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.init.SliderActivity"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/logoFirstView"
+            android:layout_width="173dp"
+            android:layout_height="202dp"
+            android:elevation="10dp"
+            app:civ_border_overlay="true"
+            app:civ_border_width="4dp"
+            app:civ_border_color="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.48"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.19999999" />
+
+        <TextView
+            android:id="@+id/title_first_view"
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:text="Servic Government"
+            android:textColor="@color/white"
+            android:background="#33000000"
+            android:elevation="10dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/logoFirstView"
+            app:layout_constraintStart_toStartOf="@+id/logoFirstView"
+            app:layout_constraintTop_toBottomOf="@+id/logoFirstView" />
+
+        <TextView
+            android:id="@+id/desc_view"
+            style="@style/TextAppearance.AppCompat.SearchResult.Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:gravity="center|center_horizontal"
+            android:lineSpacingExtra="8sp"
+            android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque dolores doloribus eaque eos exercitationem, omnis pariatur repellendus vitae voluptatem. Dolorum eaque iste magni nemo nobis, quo totam? Aut, hic."
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:background="#33000000"
+            android:elevation="10dp"
+            android:textSize="14sp"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="@+id/title_first_view"
+            app:layout_constraintStart_toStartOf="@+id/title_first_view"
+            app:layout_constraintTop_toBottomOf="@+id/title_first_view" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewFirstView"
+            android:layout_width="0dp"
+            android:layout_height="230dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="#00FFFFFF"
+            app:cardElevation="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewFirstView2"
+            android:layout_width="0dp"
+            android:layout_height="306dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            app:cardBackgroundColor="#00FFFFFF"
+            app:cardElevation="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/cardViewFirstView"
+            app:layout_constraintStart_toStartOf="@+id/cardViewFirstView"
+            app:layout_constraintTop_toBottomOf="@+id/cardViewFirstView"
+            app:layout_constraintVertical_bias="0.0">
+
+        </androidx.cardview.widget.CardView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>
