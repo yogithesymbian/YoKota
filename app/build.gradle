@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -35,6 +36,16 @@ dependencies {
     // NEW MATERIAL DESIGN
     implementation "com.google.android.material:material:1.1.0-beta01"
     implementation 'androidx.cardview:cardview:1.0.0'
+    // Image
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    //    Fire base
+    implementation 'com.google.firebase:firebase-auth:19.1.0'
+    implementation 'com.google.firebase:firebase-core:17.2.0'
+    //    sign With Gmail
+    implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    //    databaseStore
+    implementation 'com.google.firebase:firebase-storage:19.1.0'
+    implementation 'com.google.firebase:firebase-database:19.2.0'
 
 }
