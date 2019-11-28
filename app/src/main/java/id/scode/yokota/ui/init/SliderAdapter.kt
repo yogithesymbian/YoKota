@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2019. Scodeid | yogithesymbian | Yogi Arif Widodo. 
+ * Android Studio 3.5.1
+ * Build #AI-191.8026.42.35.5900203, built on September 26, 2019
+ * JRE: 1.8.0_202-release-1483-b49-5587405 amd64
+ * JVM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
+ * Linux 5.2.0-kali3-amd64
+ */
+
 package id.scode.yokota.ui.init
 
 import android.content.Context
@@ -16,13 +25,20 @@ import id.scode.yokota.R
 class SliderAdapter(private val context: Context) : PagerAdapter() {
 
     private var slideImage = intArrayOf(
+        R.drawable.ic_bg_sl_1,
         R.drawable.ic_logo_1,
         R.drawable.ic_logo_1,
         R.drawable.ic_logo_1
     )
 
-    private var slideHeading = arrayOf("Service Government", "Medical Service", "Move Point Service")
-    private var slideDescription = arrayOf("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque dolores doloribus eaque eos exercitationem, omnis pariatur repellendus vitae voluptatem. Dolorum eaque iste magni nemo nobis, quo totam? Aut, hic.", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque dolores doloribus eaque eos exercitationem, omnis pariatur repellendus vitae voluptatem. Dolorum eaque iste magni nemo nobis, quo totam? Aut, hic.", "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci atque dolores doloribus eaque eos exercitationem, omnis pariatur repellendus vitae voluptatem. Dolorum eaque iste magni nemo nobis, quo totam? Aut, hic.")
+    private var slideHeading =
+        arrayOf("YoKota","Banjir", "Reboisasi", "Hutan Gundul/ Penebangan Liar")
+    private var slideDescription = arrayOf(
+        "aplikasi cerdas yang dibuat atas kesadaran dari lokasi yang rawan terhadap banjir akibat berkurangnya jumlah pohon-pohon sebagai penyerap air jika intensitas hujan terus menerus",
+        "salah satu bencana alam yang sering timbul salah satu factornya adalah karena berkurangnya jumlah pohon dan pembangunan gedung- gedung tinggi pencakar langit",
+        "penghijauan atau penanaman hutan kembali agar dapat menyerap jumlah air yang berlebihan sehingga tidak terjadi bencana banjir di tempat rawan banjir",
+        "kondisi lahan yang berkurang ditumbuhi pohon- pohon atau tanaman yang secara tidak langsung jika tidak dilakukan penanaman kembali (reboisasi) maka dapat mengakibatkan banjir jika intensitas hujan berlebihan"
+    )
 
     override fun getCount(): Int {
         return slideImage.size
@@ -33,8 +49,9 @@ class SliderAdapter(private val context: Context) : PagerAdapter() {
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        val layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        var view: View? = null
+        val layoutInflater =
+            context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+        val view: View?
         view = layoutInflater.inflate(R.layout.activity_slider, container, false)
 
         assert(view != null)

@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2019. Scodeid | yogithesymbian | Yogi Arif Widodo.
+ * Android Studio 3.5.1
+ * Build #AI-191.8026.42.35.5900203, built on September 26, 2019
+ * JRE: 1.8.0_202-release-1483-b49-5587405 amd64
+ * JVM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
+ * Linux 5.2.0-kali3-amd64
+ */
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
@@ -15,6 +24,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -22,6 +32,10 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    androidExtensions {
+        experimental = true
+    }
+
 }
 
 dependencies {
@@ -34,18 +48,27 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     // NEW MATERIAL DESIGN
-    implementation "com.google.android.material:material:1.1.0-beta01"
+    implementation "com.google.android.material:material:1.2.0-alpha01"
     implementation 'androidx.cardview:cardview:1.0.0'
     // Image
-    implementation 'de.hdodenhof:circleimageview:3.0.0'
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 
     //    Fire base
     implementation 'com.google.firebase:firebase-auth:19.1.0'
     implementation 'com.google.firebase:firebase-core:17.2.0'
+    implementation 'com.firebaseui:firebase-ui-database:4.3.2'
+
     //    sign With Gmail
     implementation 'com.google.android.gms:play-services-auth:17.0.0'
+    //    sign with Facebook
+    implementation 'com.facebook.android:facebook-android-sdk:4.29.0'
     //    databaseStore
     implementation 'com.google.firebase:firebase-storage:19.1.0'
     implementation 'com.google.firebase:firebase-database:19.2.0'
+
+    implementation 'com.android.support:multidex:1.0.3'
+
 
 }

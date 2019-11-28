@@ -1,71 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2019. Scodeid | yogithesymbian | Yogi Arif Widodo.
+  ~ Android Studio 3.5.1
+  ~ Build #AI-191.8026.42.35.5900203, built on September 26, 2019
+  ~ JRE: 1.8.0_202-release-1483-b49-5587405 amd64
+  ~ JVM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
+  ~ Linux 5.2.0-kali3-amd64
+  -->
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_slider_1"
     tools:context=".ui.init.SliderActivity">
 
 <!--    android:background="@drawable/background_1"-->
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_bg_root_slide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_slider_1"
+        android:elevation="0dp"
+        tools:ignore="UnusedAttribute" />
 
     <androidx.viewpager.widget.ViewPager
-        android:id="@+id/slideViewPagerFirst"
+        android:id="@+id/vp_slide_view_pager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/dotSlide"
+        android:layout_above="@+id/ln_dot_slide"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="40dp"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"
+        android:elevation="8dp"
+        tools:ignore="UnusedAttribute" />
 
     <LinearLayout
-        android:id="@+id/dotSlide"
+        android:id="@+id/ln_dot_slide"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal|center|center_vertical"
         android:orientation="horizontal"
-        android:padding="20dp">
+        android:padding="20dp"
+        android:elevation="8dp"
+        tools:ignore="UnusedAttribute" >
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/btnBack"
-        style="@style/Base.Widget.AppCompat.Button.Borderless"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_back"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/dotSlide"
-        android:text="BACK"
+        android:layout_alignTop="@+id/ln_dot_slide"
+        android:text="@string/item_slider_back"
         android:textColor="@android:color/white"
         android:layout_alignParentBottom="true"
         android:visibility="invisible"
-        android:layout_alignParentLeft="true" />
+        android:layout_alignParentLeft="true"
+        android:elevation="8dp"
+        tools:ignore="UnusedAttribute"  />
 
-    <Button
-        android:id="@+id/btnNext"
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_next"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignTop="@+id/dotSlide"
-        android:text="NEXT"
-        style="@style/Base.Widget.AppCompat.Button.Borderless"
+        android:layout_alignTop="@+id/ln_dot_slide"
+        android:text="@string/item_slider_next"
         android:textColor="@android:color/white"
-        android:layout_alignParentRight="true" />
-    <Button
-        android:id="@+id/btnFinish"
+        android:layout_alignParentRight="true"
+        android:elevation="8dp"
+        tools:ignore="UnusedAttribute" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_finish"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignTop="@+id/dotSlide"
-        android:text="FINISH"
+        android:layout_alignTop="@+id/ln_dot_slide"
+        android:text="@string/item_slider_finish"
         android:visibility="invisible"
-        style="@style/Base.Widget.AppCompat.Button.Borderless"
         android:textColor="@android:color/white"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        android:elevation="8dp"
+        tools:ignore="UnusedAttribute"  />
 
 </RelativeLayout>

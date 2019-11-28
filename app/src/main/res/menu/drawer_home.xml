@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".HomeMainActivity">
+
+<!--    android:icon="@drawable/ic_add_shopping_cart_black_24dp"-->
+    <item android:title="lorem">
+        <item
+            android:id="@+id/nav_user"
+            android:title="Hello"
+            />
+        <item
+
+            android:title="test"/>
+    </item>
+
+    <item android:title="Account">
+        <menu>
+            <item
+                android:id="@+id/nav_logout"
+                android:icon="@drawable/ic_vpn_key_black_24dp"
+                android:title="Logout"
+                />
+        </menu>
+    </item>
+
+</menu>

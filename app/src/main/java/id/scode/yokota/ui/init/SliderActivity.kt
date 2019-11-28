@@ -1,3 +1,12 @@
+/*
+ * Copyright (c) 2019. Scodeid | yogithesymbian | Yogi Arif Widodo.
+ * Android Studio 3.5.1
+ * Build #AI-191.8026.42.35.5900203, built on September 26, 2019
+ * JRE: 1.8.0_202-release-1483-b49-5587405 amd64
+ * JVM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
+ * Linux 5.2.0-kali3-amd64
+ */
+
 package id.scode.yokota.ui.init
 
 import android.content.Context
@@ -12,8 +21,11 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.res.ResourcesCompat
 import androidx.viewpager.widget.ViewPager
-import id.scode.yokota.ui.home.HomeActivity
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
+import id.scode.yokota.ui.auth.HomeActivity
 import id.scode.yokota.R
+import kotlinx.android.synthetic.main.item_slider.*
 
 class SliderActivity : AppCompatActivity() {
 
@@ -36,13 +48,14 @@ class SliderActivity : AppCompatActivity() {
          */
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
-            WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            WindowManager.LayoutParams.FLAG_FULLSCREEN
+        )
 
-        val viewPager = findViewById<View>(R.id.slideViewPagerFirst) as ViewPager
-        dotLayout = findViewById(R.id.dotSlide)
-        btnBack = findViewById(R.id.btnBack)
-        btnNext = findViewById(R.id.btnNext)
-        btnFinish = findViewById(R.id.btnFinish)
+        val viewPager = findViewById<View>(R.id.vp_slide_view_pager) as ViewPager
+        dotLayout = findViewById(R.id.ln_dot_slide)
+        btnBack = findViewById(R.id.btn_back)
+        btnNext = findViewById(R.id.btn_next)
+        btnFinish = findViewById(R.id.btn_finish)
 
         /*
         Set Adapter View Pager
@@ -74,30 +87,40 @@ class SliderActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
-        val isFirstRun = getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE).getBoolean("isFirstRun", false)
+        val isFirstRun =
+            getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE).getBoolean("isFirstRun", false)
         if (isFirstRun) {
             //show start activity
             startActivity(Intent(this@SliderActivity, HomeActivity::class.java))
         }
-        getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE).edit().putBoolean("isFirstRun", true).apply()
+        getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE).edit()
+            .putBoolean("isFirstRun", true).apply()
     }
 
     fun addDotsIndicator(position: Int) {
-        mDots = arrayOfNulls(3)
+        mDots = arrayOfNulls(4)
         dotLayout.removeAllViews()
 
         for (i in mDots.indices) {
             mDots[i] = TextView(this)
             mDots[i]!!.text = Html.fromHtml(" &#8226 ")
             mDots[i]!!.textSize = 40f
-            mDots[i]!!.setTextColor(ResourcesCompat.getColor(resources,
-                R.color.colorTransparentWhite, null))
+            mDots[i]!!.setTextColor(
+                ResourcesCompat.getColor(
+                    resources,
+                    R.color.colorTransparentWhite, null
+                )
+            )
 
             dotLayout.addView(mDots[i])
         }
         if (mDots.isNotEmpty()) {
-            mDots[position]!!.setTextColor(ResourcesCompat.getColor(resources,
-                R.color.white, null))
+            mDots[position]!!.setTextColor(
+                ResourcesCompat.getColor(
+                    resources,
+                    R.color.white, null
+                )
+            )
         }
         if (0 >= position) {
             guideText()
@@ -115,59 +138,109 @@ class SliderActivity : AppCompatActivity() {
     }
 
 
-    internal var viewListener: ViewPager.OnPageChangeListener = object : ViewPager.OnPageChangeListener {
-        override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+    internal var viewListener: ViewPager.OnPageChangeListener =
+        object : ViewPager.OnPageChangeListener {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
 
-        }
+            }
 
-        override fun onPageSelected(position: Int) {
+            override fun onPageSelected(position: Int) {
 
-            addDotsIndicator(position)
+                addDotsIndicator(position)
 
-            currentPage = position
+                currentPage = position
 
-            if (position == 0)
-            //1
-            {
-                btnBack.isEnabled = false
-                btnNext.isEnabled = true
-                btnFinish.isEnabled = false
-                btnFinish.visibility = View.INVISIBLE
-                btnBack.visibility = View.INVISIBLE
-                btnNext.visibility = View.INVISIBLE
+                if (position == 0)
+                //1
+                {
+//                img_bg_root_slide.background = R.drawable.ic_bg_sl_1
+                    Glide.with(applicationContext)
 
-                btnBack.text = ""
-                btnNext.text = "Next"
-            } else if (position == mDots.size - 1)
-            //3
-            {
-                btnBack.isEnabled = true
-                btnNext.isEnabled = false
-                btnFinish.isEnabled = true
-                btnBack.visibility = View.VISIBLE
-                btnNext.visibility = View.INVISIBLE
-                btnFinish.visibility = View.VISIBLE
+                        .load(R.drawable.ic_launcher_background)
+                        .apply(
+                            RequestOptions()
+                                .override(36, 36)
+                        )
+                        .into(img_bg_root_slide)
+                    btnBack.isEnabled = false
+                    btnNext.isEnabled = true
+                    btnFinish.isEnabled = false
+                    btnFinish.visibility = View.INVISIBLE
+                    btnBack.visibility = View.INVISIBLE
+                    btnNext.visibility = View.INVISIBLE
 
-                btnBack.text = "Back"
-                btnNext.text = ""
-            } else
-            //2
-            {
-                btnBack.isEnabled = true
-                btnNext.isEnabled = true
-                btnFinish.isEnabled = false
-                btnNext.visibility = View.VISIBLE
-                btnBack.visibility = View.VISIBLE
-                btnFinish.visibility = View.INVISIBLE
+                    btnBack.text = ""
+                    btnNext.text = "Next"
+                } else if (position == mDots.size - 2)
+                //3 -> 2
+                {
+                    Glide.with(applicationContext)
 
-                btnBack.text = "Back"
-                btnNext.text = "Next"
+                        .load(R.drawable.ic_bg_sl_2)
+                        .apply(
+                            RequestOptions()
+                                .override(36, 36)
+                        )
+                        .into(img_bg_root_slide)
+                    btnBack.isEnabled = true
+                    btnNext.isEnabled = false
+                    btnFinish.isEnabled = true
+                    btnBack.visibility = View.VISIBLE
+                    btnNext.visibility = View.INVISIBLE
+                    btnFinish.visibility = View.VISIBLE
+
+                    btnBack.text = "Back"
+                    btnNext.text = ""
+                }else if (position == mDots.size - 1)
+                //4 -> 3
+                {
+                    Glide.with(applicationContext)
+
+                        .load(R.drawable.ic_bg_sl_3)
+                        .apply(
+                            RequestOptions()
+                                .override(36, 36)
+                        )
+                        .into(img_bg_root_slide)
+                    btnBack.isEnabled = true
+                    btnNext.isEnabled = false
+                    btnFinish.isEnabled = true
+                    btnBack.visibility = View.VISIBLE
+                    btnNext.visibility = View.INVISIBLE
+                    btnFinish.visibility = View.VISIBLE
+
+                    btnBack.text = "Back"
+                    btnNext.text = ""
+                } else
+                //2
+                {
+                    Glide.with(applicationContext)
+
+                        .load(R.drawable.ic_bg_sl_1)
+                        .apply(
+                            RequestOptions()
+                                .override(36, 36)
+                        )
+                        .into(img_bg_root_slide)
+                    btnBack.isEnabled = true
+                    btnNext.isEnabled = true
+                    btnFinish.isEnabled = false
+                    btnNext.visibility = View.VISIBLE
+                    btnBack.visibility = View.VISIBLE
+                    btnFinish.visibility = View.INVISIBLE
+
+                    btnBack.text = "Back"
+                    btnNext.text = "Next"
+                }
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+
             }
         }
-
-        override fun onPageScrollStateChanged(state: Int) {
-
-        }
-    }
 }
 
