@@ -15,5 +15,7 @@
 
     <color name="colorTransparentWhite">#00FFFFFF</color>
     <color name="white">#FFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="yellow">#FF9800</color>
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#FFF</color>
 </resources>

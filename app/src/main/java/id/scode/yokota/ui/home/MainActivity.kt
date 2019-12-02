@@ -28,6 +28,7 @@ import com.google.firebase.database.*
 import id.scode.yokota.R
 import id.scode.yokota.model.AirModel
 import kotlinx.android.synthetic.main.activity_main_content.*
+import kotlinx.android.synthetic.main.item_air.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -70,11 +71,35 @@ class MainActivity : AppCompatActivity() {
                     override fun onDataChange(p0: DataSnapshot) {
                         showProgress.visibility = if (itemCount == 0) View.VISIBLE else View.GONE
                         holder.distance.text = "${airModel.distance}"
-                        val kedalaman = holder.distance.text
-                        if (kedalaman <= "2") {
+
+//                         = holder.distance.text.toString()
+                        val arrayList = arrayListOf(airModel)
+
+                        for (i in arrayList.indices){
+                            Log.d(TAG_LOG," data ${arrayList[i].distance}")
+
+                            holder.location.text = arrayList[i].location
+
+                            val distanceAir = arrayList[i].distance.toString()
+
+                            if (distanceAir >= "15" && distanceAir <= "22") { // >= 60
+                                holder.distance.setTextColor(resources.getColorStateList(R.color.yellow))
+//                                card_left.setCardBackgroundColor(resources.getColor(R.color.yellow))
+//                                card_right.setCardBackgroundColor(resources.getColor(R.color.yellow))
+
+                                Log.d("TAG","set yellow the data $distanceAir")
+                            } else if (distanceAir >= "23") { // 40 to 60 cm
+                                holder.distance.setTextColor(resources.getColorStateList(R.color.red))
+//                                card_left.setCardBackgroundColor(resources.getColor(R.color.red))
+//                                card_right.setCardBackgroundColor(resources.getColor(R.color.red))
+
+                                Log.d("TAG","set red the data $distanceAir")
+                            }
                         }
-                        holder.location.text = "${airModel.location}"
-                        Log.d(TAG_LOG, " data : " + airModel.distance)
+
+
+
+//                        Log.d(TAG_LOG, " data : " + airModel.distance)
                     }
                 })
             }
