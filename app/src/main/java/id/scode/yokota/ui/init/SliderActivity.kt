@@ -158,14 +158,14 @@ class SliderActivity : AppCompatActivity() {
                 //1
                 {
 //                img_bg_root_slide.background = R.drawable.ic_bg_sl_1
-                    Glide.with(applicationContext)
-
-                        .load(R.drawable.ic_launcher_background)
-                        .apply(
-                            RequestOptions()
-                                .override(36, 36)
-                        )
-                        .into(img_bg_root_slide)
+//                    Glide.with(applicationContext)
+//
+//                        .load(R.drawable.ic_launcher_background)
+//                        .apply(
+//                            RequestOptions()
+//                                .override(36, 36)
+//                        )
+//                        .into(img_bg_root_slide)
                     btnBack.isEnabled = false
                     btnNext.isEnabled = true
                     btnFinish.isEnabled = false
@@ -178,14 +178,14 @@ class SliderActivity : AppCompatActivity() {
                 } else if (position == mDots.size - 2)
                 //3 -> 2
                 {
-                    Glide.with(applicationContext)
-
-                        .load(R.drawable.ic_bg_sl_2)
-                        .apply(
-                            RequestOptions()
-                                .override(36, 36)
-                        )
-                        .into(img_bg_root_slide)
+//                    Glide.with(applicationContext)
+//
+//                        .load(R.drawable.ic_bg_sl_2)
+//                        .apply(
+//                            RequestOptions()
+//                                .override(36, 36)
+//                        )
+//                        .into(img_bg_root_slide)
                     btnBack.isEnabled = true
                     btnNext.isEnabled = false
                     btnFinish.isEnabled = true
@@ -198,14 +198,14 @@ class SliderActivity : AppCompatActivity() {
                 }else if (position == mDots.size - 1)
                 //4 -> 3
                 {
-                    Glide.with(applicationContext)
-
-                        .load(R.drawable.ic_bg_sl_3)
-                        .apply(
-                            RequestOptions()
-                                .override(36, 36)
-                        )
-                        .into(img_bg_root_slide)
+//                    Glide.with(applicationContext)
+//
+//                        .load(R.drawable.ic_bg_sl_3)
+//                        .apply(
+//                            RequestOptions()
+//                                .override(36, 36)
+//                        )
+//                        .into(img_bg_root_slide)
                     btnBack.isEnabled = true
                     btnNext.isEnabled = false
                     btnFinish.isEnabled = true
@@ -218,14 +218,14 @@ class SliderActivity : AppCompatActivity() {
                 } else
                 //2
                 {
-                    Glide.with(applicationContext)
-
-                        .load(R.drawable.ic_bg_sl_1)
-                        .apply(
-                            RequestOptions()
-                                .override(36, 36)
-                        )
-                        .into(img_bg_root_slide)
+//                    Glide.with(applicationContext)
+//
+//                        .load(R.drawable.ic_bg_sl_1)
+//                        .apply(
+//                            RequestOptions()
+//                                .override(36, 36)
+//                        )
+//                        .into(img_bg_root_slide)
                     btnBack.isEnabled = true
                     btnNext.isEnabled = true
                     btnFinish.isEnabled = false

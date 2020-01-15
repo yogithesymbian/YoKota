@@ -25,10 +25,10 @@ import id.scode.yokota.R
 class SliderAdapter(private val context: Context) : PagerAdapter() {
 
     private var slideImage = intArrayOf(
-        R.drawable.ic_bg_sl_1,
-        R.drawable.ic_logo_1,
-        R.drawable.ic_logo_1,
-        R.drawable.ic_logo_1
+        R.drawable.ic_bg_sl_1_new,
+        R.drawable.ic_bg_sl_2_new,
+        R.drawable.ic_bg_sl_3_new,
+        R.drawable.ic_bg_sl_4_new
     )
 
     private var slideHeading =
@@ -55,11 +55,11 @@ class SliderAdapter(private val context: Context) : PagerAdapter() {
         view = layoutInflater.inflate(R.layout.activity_slider, container, false)
 
         assert(view != null)
-        val imageLogo = view!!.findViewById<View>(R.id.logoFirstView) as ImageView
-        val txtTitle = view.findViewById<View>(R.id.title_first_view) as TextView
-        val txtDescprition = view.findViewById<View>(R.id.desc_view) as TextView
-        val cardView1 = view.findViewById<View>(R.id.cardViewFirstView) as CardView
-        val cardView2 = view.findViewById<View>(R.id.cardViewFirstView2) as CardView
+        val imageLogo = view!!.findViewById<View>(R.id.img_logo_first_view) as ImageView
+        val txtTitle = view.findViewById<View>(R.id.txt_title_first_view) as TextView
+        val txtDescprition = view.findViewById<View>(R.id.txt_desc_view) as TextView
+        val cardView1 = view.findViewById<View>(R.id.cv_first_view) as CardView
+        val cardView2 = view.findViewById<View>(R.id.cv_first_view_2) as CardView
 
         cardView1.setBackgroundColor(Color.TRANSPARENT)
 

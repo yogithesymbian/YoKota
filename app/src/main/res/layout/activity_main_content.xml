@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (c) 2019. Scodeid | yogithesymbian | Yogi Arif Widodo.
   ~ Android Studio 3.5.1
   ~ Build #AI-191.8026.42.35.5900203, built on September 26, 2019
@@ -8,83 +7,171 @@
   ~ Linux 5.2.0-kali3-amd64
   -->
 
-<androidx.core.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_marginBottom="20dp"
-    android:fitsSystemWindows="true"
     android:fillViewport="true"
-    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-    tools:showIn="@layout/activity_main_bar"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".ui.home.MainActivity"
-    >
+    tools:showIn="@layout/activity_main_bar">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_weather"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="8dp"
-        tools:context=".ui.home.MainActivity">
+        android:layout_height="220dp"
+        android:padding="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/card_weather"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="wrap_content">
 
 
-            <androidx.appcompat.widget.AppCompatTextView
-                android:padding="8dp"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/addressContainer"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="current location" />
+                android:gravity="center"
+                android:orientation="vertical">
 
-        </androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/txt_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Samarinda, East"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/txt_updated_at"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20 April 2019, 20:08 PM"
+                    android:textSize="14sp" />
+            </LinearLayout>
 
 
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/spinner_cat1"
-            style="@style/Widget.AppCompat.Spinner.Underlined"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_margin="10dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            <LinearLayout
+                android:id="@+id/overviewContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="100dp"
+                android:orientation="vertical">
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
+                <TextView
+                    android:id="@+id/txt_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Clear Sky"
+                    android:textSize="18sp" />
 
-            app:layout_constraintTop_toBottomOf="@+id/card_weather"
-            android:entries="@array/city_list" />
+                <TextView
+                    android:id="@+id/txt_temp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="sans-serif-thin"
+                    android:text="29°C"
+                    android:textSize="90sp" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/spinner_cat1" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_temp_min"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Min Temp: 05:05 AM" />
+
+                    <Space
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content" />
+
+                    <TextView
+                        android:id="@+id/txt_temp_max"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Max Temp: 05:05 PM" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
 
         <ProgressBar
-            android:id="@+id/progress_bar_rv"
-            android:layout_width="match_parent"
+            android:id="@+id/pg_loader"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_centerInParent="true"
+            android:visibility="gone" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/txt_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="."
+            android:visibility="gone" />
+        <!--            end of weather test-->
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spinner_cat1"
+        style="@style/Widget.AppCompat.Spinner.DropDown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_margin="10dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+
+        android:entries="@array/city_list"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_weather" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_water_level_sensor"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner_cat1" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar_rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.core.widget.NestedScrollView>

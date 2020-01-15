@@ -13,7 +13,6 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -212,7 +211,7 @@ class RegisterActivity : AppCompatActivity() {
             selectedPhotoUri = data.data
 
             val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedPhotoUri)
-            select_circle_image.setImageBitmap(bitmap)
+            btn_select_circle_image.setImageBitmap(bitmap)
             btn_select_photo.alpha = 0f
             progress_bar.hide()
         }

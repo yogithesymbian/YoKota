@@ -9,17 +9,13 @@
 
 package id.scode.yokota.ui.auth
 
-import android.annotation.SuppressLint
+import android.R.attr.password
 import android.content.Intent
-import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Base64
 import android.util.Log
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentActivity
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -30,21 +26,38 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import id.scode.yokota.R
+import com.google.firebase.auth.FirebaseUser
 import id.scode.yokota.ui.home.MainActivity
+import id.scode.yokota.R
 import kotlinx.android.synthetic.main.activity_home.*
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
-
 
 
 class HomeActivity : AppCompatActivity() {
 
-    companion object{
+    companion object {
         private const val REQUEST_SIGN_GOOGLE: Int = 1
+        private val TAG_LOG = HomeActivity::class.java.simpleName
+    }
+
+    override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+
+        val currentUser: FirebaseUser? = firebaseAuth?.currentUser
+        updateUI(currentUser)
+
+
+    }
+
+    private fun updateUI(currentUser: FirebaseUser?) {
+        if (currentUser != null) {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
     }
 
     // declare google lib
@@ -52,15 +65,12 @@ class HomeActivity : AppCompatActivity() {
     private lateinit var gso: GoogleSignInOptions
 
     // declare for facebook lib
-    private var firebaseAuth: FirebaseAuth ? = null
-    private var callBackManager: CallbackManager ? = null
+    private var firebaseAuth: FirebaseAuth? = null
+    private var callBackManager: CallbackManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
-        verifyUserLoggedIn()
-
 
 //        printHashKey() // for facebook app {hash}
 
@@ -72,14 +82,14 @@ class HomeActivity : AppCompatActivity() {
             .requestEmail()
             .build()
         gsc = GoogleSignIn.getClient(
-            this ,
+            this,
             gso
         )
 
         /**
          * facebook initialize
          */
-        firebaseAuth = FirebaseAuth.getInstance()
+        firebaseAuth = FirebaseAuth.getInstance() // firebase too
         callBackManager = CallbackManager.Factory.create()
         btn_fb_login.setReadPermissions("email")
 
@@ -87,31 +97,54 @@ class HomeActivity : AppCompatActivity() {
         /**
          * Listener onClick
          */
-        btn_register.setOnClickListener{
+        txt_need_an_account.setOnClickListener {
             startActivity(Intent(this@HomeActivity, RegisterActivity::class.java))
         }
 
-        google_sign.setOnClickListener{
+        btn_google_sign.setOnClickListener {
             signInGoogle()
         }
+
         btn_fb_login.setOnClickListener {
             signIn()
         }
 
+        btn_login.setOnClickListener {
 
-    }
 
-    private fun verifyUserLoggedIn() {
-        val uid = FirebaseAuth.getInstance().currentUser?.uid
-        if (uid == null) {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-            startActivity(intent)
+            firebaseAuth?.signInWithEmailAndPassword(
+                ip_edt_email.text.toString(),
+                ip_edt_pass.text.toString()
+            )
+                ?.addOnCompleteListener(
+                    this
+                ) { task ->
+                    if (task.isSuccessful) { // Sign in success, update UI with the signed-in user's information
+                        Log.d(TAG_LOG, "signInWithEmail:success")
+                        val user: FirebaseUser? = firebaseAuth?.currentUser
+                        updateUI(user)
+                    } else { // If sign in fails, display a message to the user.
+                        Log.w(
+                            TAG_LOG,
+                            "signInWithEmail:failure",
+                            task.exception
+                        )
+                        Toast.makeText(
+                            this@HomeActivity, "Authentication failed.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        updateUI(null)
+                    }
+                    // ...
+                }
         }
+
+
     }
+
 
     private fun signIn() {
-        btn_fb_login.registerCallback(callBackManager, object : FacebookCallback<LoginResult>{
+        btn_fb_login.registerCallback(callBackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(result: LoginResult?) {
                 handleFacebookAccessToken(result!!.accessToken)
             }
@@ -144,27 +177,6 @@ class HomeActivity : AppCompatActivity() {
     }
 
 
-//    @SuppressLint("PackageManagerGetSignatures")
-//    private fun printHashKey() {
-//        Log.d("RUN","print")
-//        try {
-//            Log.d("RUN","try print")
-//            val info : PackageInfo = packageManager.getPackageInfo("id.scode.yokota", PackageManager.GET_SIGNATURES)
-//            for (signature in info.signatures){
-//
-//                val md : MessageDigest = MessageDigest.getInstance("SHA")
-//                md.update(signature.toByteArray())
-//                Log.e("KEY_HASH", Base64.encodeToString(md.digest(), Base64.DEFAULT))
-//                Log.d("RUN","for print")
-//
-//            }
-//        } catch (e: PackageManager.NameNotFoundException){
-//
-//        } catch (e: NoSuchAlgorithmException){
-//
-//        }
-//    }
-
     private fun signInGoogle() {
         val intentSignGoogle = gsc.signInIntent
         startActivityForResult(intentSignGoogle, REQUEST_SIGN_GOOGLE)
@@ -184,7 +196,7 @@ class HomeActivity : AppCompatActivity() {
         try {
             val account = task?.getResult(ApiException::class.java)
             updateUi(account)
-        } catch (e: ApiException){
+        } catch (e: ApiException) {
             Toast.makeText(this, e.toString(), Toast.LENGTH_LONG)
                 .show()
         }
@@ -193,6 +205,10 @@ class HomeActivity : AppCompatActivity() {
     private fun updateUi(account: GoogleSignInAccount?) {
         Toast.makeText(this, account?.displayName.toString(), Toast.LENGTH_LONG)
             .show()
-        startActivity(Intent(this@HomeActivity, MainActivity::class.java))
+
+        val intent = Intent(this, MainActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        startActivity(intent)
+
     }
 }

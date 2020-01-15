@@ -8,9 +8,7 @@
  */
 
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.google.gms.google-services'
 
@@ -48,16 +46,16 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     // NEW MATERIAL DESIGN
-    implementation "com.google.android.material:material:1.2.0-alpha01"
+    implementation "com.google.android.material:material:1.2.0-alpha03"
     implementation 'androidx.cardview:cardview:1.0.0'
     // Image
     implementation 'de.hdodenhof:circleimageview:3.0.1'
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
 
     //    Fire base
-    implementation 'com.google.firebase:firebase-auth:19.1.0'
-    implementation 'com.google.firebase:firebase-core:17.2.0'
+    implementation 'com.google.firebase:firebase-auth:19.2.0'
+    implementation 'com.google.firebase:firebase-core:17.2.1'
     implementation 'com.firebaseui:firebase-ui-database:4.3.2'
 
     //    sign With Gmail
@@ -69,6 +67,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-database:19.2.0'
 
     implementation 'com.android.support:multidex:1.0.3'
-
+    implementation 'com.google.maps.android:android-maps-utils:0.5'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
 }

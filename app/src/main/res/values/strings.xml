@@ -10,30 +10,23 @@
 <resources>
     <string name="app_name">YoKota</string>
     <string name="activity_register_email">Email</string>
-    <string name="activity_register_sign_up">Sign Up</string>
+    <string name="activity_register_sign_up">Daftar</string>
     <string name="activity_home_register">Register</string>
 
     <string name="facebook_app_id">445532792767832</string>
     <string name="fb_login_protocol_scheme">fb445532792767832</string>
-    <string name="activity_home_log_in">Log in</string>
+    <string name="activity_home_log_in">Masuk</string>
     <string name="item_slider_finish">FINISH</string>
     <string name="item_slider_next">NEXT</string>
     <string name="item_slider_back">BACK</string>
     <string name="activity_home_password">Password</string>
-    <string name="activity_home_forgot_password">Forgot Password?</string>
-    <string name="activity_home_need_an_account">NEED AN ACCOUNT?</string>
+    <string name="activity_home_forgot_password">Lupa Password?</string>
+    <string name="activity_home_need_an_account">Belum punya akun ? Daftar</string>
     <string name="activity_home_username">Username</string>
 
     <string-array name="city_list">
-        <item>Bangkok</item>
-        <item>London</item>
-        <item>Paris</item>
-        <item>Singapore</item>
-        <item>New York</item>
-        <item>Istanbul</item>
-        <item>Dubai</item>
-        <item>Kuala Lumpur</item>
-        <item>Hong Kong</item>
-        <item>Barcelona</item>
+        <item>Samarinda</item>
+        <item>Balikpapan</item>
+        <item>Bontang</item>
     </string-array>
 </resources>

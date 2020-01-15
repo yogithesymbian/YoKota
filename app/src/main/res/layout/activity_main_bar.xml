@@ -45,7 +45,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar_search"
         android:layout_marginTop="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
@@ -61,7 +60,7 @@
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
+            android:layout_marginBottom="55dp"
             />
     </FrameLayout>
 
@@ -73,17 +72,19 @@
         android:layout_gravity="bottom"
         app:fabAnimationMode="slide"
         app:fabAlignmentMode="center"
-        app:navigationIcon="@drawable/ic_texture_black_24dp"
+        app:navigationIcon="@drawable/ic_dehaze_black_24dp"
         app:hideOnScroll="true"
         >
 
     </com.google.android.material.bottomappbar.BottomAppBar>
 
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/float_add_cart"
+        android:id="@+id/fb_map_view"
         style="@style/Widget.MaterialComponents.ExtendedFloatingActionButton.Icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="maps"
+        android:textColor="@android:color/white"
         app:icon="@drawable/ic_location_on_black_24dp"
         app:iconTint="@android:color/white"
         app:backgroundTint="@color/colorPrimary"

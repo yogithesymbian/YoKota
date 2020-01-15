@@ -32,7 +32,7 @@
         tools:targetApi="lollipop"/>
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_user_name_nav_header"
+        android:id="@+id/txt_user_name_nav_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"

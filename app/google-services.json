@@ -29,7 +29,44 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCOxqXWFUO_gTKqU0pBL1_Kf_3nlx5gPcU"
+          "current_key": "AIzaSyA8y12LpeEulKhw8ZKnaYm5ngO8bMY2Qzo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "163178024174-q21ms04n8nr0co128nj4vhopid5iooas.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:163178024174:android:d2c087b78764a3c924f7ff",
+        "android_client_info": {
+          "package_name": "id.scode.codeerror.needclass"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "163178024174-qrm4r66av8v3ka73239mmj68huuluim2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.scode.codeerror.needclass",
+            "certificate_hash": "fd163cf112b82d9442721f72f778aa4d20c6d2fd"
+          }
+        },
+        {
+          "client_id": "163178024174-q21ms04n8nr0co128nj4vhopid5iooas.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8y12LpeEulKhw8ZKnaYm5ngO8bMY2Qzo"
         }
       ],
       "services": {
@@ -74,7 +111,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCOxqXWFUO_gTKqU0pBL1_Kf_3nlx5gPcU"
+          "current_key": "AIzaSyA8y12LpeEulKhw8ZKnaYm5ngO8bMY2Qzo"
         }
       ],
       "services": {
@@ -119,7 +156,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCOxqXWFUO_gTKqU0pBL1_Kf_3nlx5gPcU"
+          "current_key": "AIzaSyA8y12LpeEulKhw8ZKnaYm5ngO8bMY2Qzo"
         }
       ],
       "services": {
@@ -156,7 +193,7 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCOxqXWFUO_gTKqU0pBL1_Kf_3nlx5gPcU"
+          "current_key": "AIzaSyA8y12LpeEulKhw8ZKnaYm5ngO8bMY2Qzo"
         }
       ],
       "services": {

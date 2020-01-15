@@ -19,6 +19,7 @@
     tools:context=".ui.auth.HomeActivity">
 
 
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="0dp"
@@ -42,17 +43,16 @@
             android:paddingBottom="60dp"
             android:orientation="vertical">
 
-            <androidx.appcompat.widget.AppCompatTextView
-                style="@style/TextAppearance.AppCompat.Body1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal|center_vertical|center"
-                android:layout_marginBottom="8dp"
-                android:gravity="center"
-                android:text="@string/activity_home_log_in"
-                android:textColor="@android:color/white"
-                android:textSize="32sp"
-                android:textStyle="bold" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/ic_logo_splash"
+                android:layout_gravity="center"
+                android:layout_marginBottom="35dp"
+                app:civ_border_color="@android:color/white"
+                app:civ_border_width="4dp"
+                />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/ip_layout_email"
@@ -141,9 +141,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="OR"
+        android:text="atau"
         android:textColor="@android:color/white"
-        android:textSize="32sp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/txt_forgot_password"
         app:layout_constraintStart_toStartOf="@+id/txt_forgot_password"
         app:layout_constraintTop_toBottomOf="@+id/txt_forgot_password" />
@@ -177,52 +177,72 @@
         app:layout_constraintTop_toTopOf="@+id/txt_or" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_register"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/activity_register_sign_up"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:id="@+id/btn_init_1"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        app:cornerRadius="40dp"
+        app:icon="@drawable/ic_google"
+        app:iconGravity="start"
+        app:iconSize="20dp"
+        app:layout_constraintEnd_toStartOf="@+id/txt_or"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/vv_1"
+        app:layout_constraintTop_toBottomOf="@+id/vv_1" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_init_2"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        app:cornerRadius="40dp"
+        app:icon="@drawable/ic_facebook"
+        app:iconGravity="start"
+        app:iconSize="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/vv_2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/txt_or"
+        app:layout_constraintTop_toBottomOf="@+id/vv_1" />
 
     <com.google.android.gms.common.SignInButton
-        android:id="@+id/google_sign"
+        android:id="@+id/btn_google_sign"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="@+id/btn_fb_login"
-        app:layout_constraintStart_toStartOf="@+id/btn_fb_login"
-        app:layout_constraintTop_toBottomOf="@+id/btn_fb_login" />
+        android:layout_height="0dp"
+        android:elevation="12dp"
+        android:alpha="0.0"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_init_1"
+        app:layout_constraintEnd_toEndOf="@+id/btn_init_1"
+        app:layout_constraintStart_toStartOf="@+id/btn_init_1"
+        app:layout_constraintTop_toTopOf="@+id/btn_init_1"
+        tools:ignore="UnusedAttribute" />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/btn_fb_login"
         style="@style/com_facebook_auth_dialog"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:layout_constraintEnd_toEndOf="@+id/txt_or"
-        app:layout_constraintStart_toEndOf="@+id/vv_1"
-        app:layout_constraintTop_toBottomOf="@+id/txt_or" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.0"
+        android:elevation="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_init_2"
+        app:layout_constraintEnd_toEndOf="@+id/btn_init_2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btn_init_2"
+        app:layout_constraintTop_toTopOf="@+id/btn_init_2"
+        tools:ignore="UnusedAttribute" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txt_need_an_account"
-        style="@style/TextAppearance.AppCompat.Body1"
+        style="@style/TextAppearance.AppCompat.Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
         android:text="@string/activity_home_need_an_account"
         android:textColor="@android:color/white"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/btn_register"
-        app:layout_constraintEnd_toEndOf="@+id/btn_register"
-        app:layout_constraintStart_toStartOf="@+id/btn_register" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

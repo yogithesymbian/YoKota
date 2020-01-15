@@ -1,0 +1,18 @@
+<!--
+  ~ Copyright (c) 2020. Scodeid | yogithesymbian | Yogi Arif Widodo.
+  ~ Android Studio 3.5.1
+  ~ Build #AI-191.8026.42.35.5900203, built on September 26, 2019
+  ~ JRE: 1.8.0_202-release-1483-b49-5587405 amd64
+  ~ JVM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
+  ~ Linux 5.2.0-kali3-amd64
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportWidth="24.0"
+        android:viewportHeight="24.0">
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M2,15.5v2h20v-2L2,15.5zM2,10.5v2h20v-2L2,10.5zM2,5.5v2h20v-2L2,5.5z"/>
+</vector>

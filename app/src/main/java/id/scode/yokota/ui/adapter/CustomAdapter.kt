@@ -7,7 +7,7 @@
  * Linux 5.2.0-kali3-amd64
  */
 
-package id.scode.yokota.adapter
+package id.scode.yokota.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -15,12 +15,12 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import id.scode.yokota.R
-import id.scode.yokota.model.User
+import id.scode.yokota.data.model.User
 
 /**
  * @Authors scode | Yogi Arif Widodo
  * Created on 18 11/18/19 10:08 AM 2019
- * id.scode.yokota.adapter
+ * id.scode.yokota.ui.adapter
  * https://github.com/yogithesymbian
  * Android Studio 3.5.1
  * Build #AI-191.8026.42.35.5900203, built on September 26, 2019

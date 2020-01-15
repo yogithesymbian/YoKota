@@ -39,7 +39,7 @@
         android:layout_marginBottom="164dp"
         android:elevation="12dp"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_logo_1"
+        android:src="@drawable/ic_logo_splash"
         tools:ignore="UnusedAttribute" />
 
 </RelativeLayout>
